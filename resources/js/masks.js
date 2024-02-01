@@ -1,5 +1,3 @@
-import * as VMasker from 'vanilla-masker';
-import * as bootstrap from "bootstrap";
 
 document.addEventListener("DOMContentLoaded", function(){
     // Mask contact numbers

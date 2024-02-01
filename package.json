@@ -12,7 +12,6 @@
     },
     "dependencies": {
         "bootstrap": "^5.3.2",
-        "sweetalert2": "^11.10.4",
-        "vanilla-masker": "^1.2.0"
+        "sweetalert2": "^11.10.4"
     }
 }

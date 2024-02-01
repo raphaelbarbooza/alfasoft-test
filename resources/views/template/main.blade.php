@@ -11,6 +11,8 @@
             :: @yield('title')
         @endif</title>
 
+    <script src="{{asset('assets/js/vanilla.masker.js')}}"></script>
+
     @vite('resources/css/app.css')
     <script src="https://kit.fontawesome.com/72c4a6b265.js" crossorigin="anonymous"></script>
 

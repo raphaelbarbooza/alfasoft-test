@@ -22,7 +22,9 @@ class AppServiceProvider extends ServiceProvider
         // Using Bootstrap paginators
         Paginator::useBootstrapFive();
         // Force HTTPS on Production
-        URL::forceScheme('https');
+        if(config('app.env') === 'production') {
+            URL::forceScheme('https');
+        }
     }
 
     /**
