@@ -17,7 +17,7 @@
 </head>
 <body>
 
-<div class="container vh-100 bg-light border-1 border-start border-end pt-3">
+<div class="container min-vh-100 bg-light border-1 border-start border-end pt-3">
 
     @include('parts.login-bar')
 
