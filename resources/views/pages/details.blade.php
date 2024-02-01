@@ -16,7 +16,12 @@
                 Edit
             </a>
             <button type="button"
-                    class="btn btn-danger">
+                    class="btn btn-danger"
+                    onclick="deleteContactConfirmation(
+                                {{$contact->getAttribute('id')}},
+                                '{{$contact->getAttribute('name')}}',
+                                '{{route('contact.delete',['contact' => $contact->getAttribute('id')])}}'
+                                )">
                 <i class="fa-solid fa-trash-can me-2"></i>
                 Remove
             </button>

@@ -1,19 +1,15 @@
-<div class="row d-flex justify-content-center mt-2">
-    <div class="col-lg-3">
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
 
         @if(\Illuminate\Support\Facades\Session::has('generalSuccess'))
-            <div class="alert alert-success">
-                <i class="fa-solid fa-circle-check me-2"></i>
-                {{\Illuminate\Support\Facades\Session::pull('generalSuccess')}}
-            </div>
+        alertSuccess("{{\Illuminate\Support\Facades\Session::pull('generalSuccess')}}");
         @endif
-
         @if(\Illuminate\Support\Facades\Session::has('generalDanger'))
-            <div class="alert alert-danger">
-                <i class="fa-solid fa-triangle-exclamation me-2"></i>
-                {{\Illuminate\Support\Facades\Session::pull('generalDanger')}}
-            </div>
+        alertDanger("{{\Illuminate\Support\Facades\Session::pull('generalDanger')}}");
+        @endif
+        @if(\Illuminate\Support\Facades\Session::has('generalWarning'))
+        alertWarning("{{\Illuminate\Support\Facades\Session::pull('generalWarning')}}");
         @endif
 
-    </div>
-</div>
+    });
+</script>

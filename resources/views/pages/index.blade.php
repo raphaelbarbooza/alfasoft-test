@@ -85,7 +85,12 @@
                         <button @guest disabled @endguest type="button"
                                 class="btn btn-sm btn-danger"
                                 data-bs-toggle="tooltip" data-bs-placement="top"
-                                title="Delete">
+                                title="Delete"
+                                onclick="deleteContactConfirmation(
+                                {{$contact->getAttribute('id')}},
+                                '{{$contact->getAttribute('name')}}',
+                                '{{route('contact.delete',['contact' => $contact->getAttribute('id')])}}'
+                                )">
                             <i class="fa-solid fa-trash-can"></i>
                         </button>
                     </div>

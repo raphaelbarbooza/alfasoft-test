@@ -22,5 +22,8 @@ Route::middleware('auth:web')->group(function(){
     Route::prefix('contact/{contact}')->group(function(){
         // View Route
         Route::get('/',[\App\Http\Controllers\ContactController::class,'view'])->name('contact.view');
+
+        // Delete Route
+        Route::post('/delete',[\App\Http\Controllers\ContactController::class, 'delete'])->name('contact.delete');
     });
 });

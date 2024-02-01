@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta name="csrf" content="{{ csrf_token() }}">
 
     <title>{{config('app.name')}} @hasSection('title')
             :: @yield('title')
@@ -22,9 +23,6 @@
 
     <div class="text-center pt-5 pb-5">
         <img class="mw-100" src="{{asset('assets/images/logo.png')}}"/>
-
-        @include('parts.general-alerts')
-
     </div>
 
     <div class="border-top p-1 p-md-5">
@@ -36,5 +34,6 @@
 
 @vite('resources/js/app.js')
 @stack('scripts')
+@include('parts.general-alerts')
 </body>
 </html>
