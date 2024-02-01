@@ -19,11 +19,19 @@ Route::post('/auth',[\App\Http\Controllers\AuthController::class, 'authenticate'
 Route::get('/logout',[\App\Http\Controllers\AuthController::class, 'logout'])->name('auth.logout');
 
 Route::middleware('auth:web')->group(function(){
-    Route::prefix('contact/{contact}')->group(function(){
-        // View Route
-        Route::get('/',[\App\Http\Controllers\ContactController::class,'view'])->name('contact.view');
+    Route::prefix('contact')->group(function(){
+        // Create Form Route
+        Route::get('/create',[\App\Http\Controllers\ContactController::class,'create'])->name('contact.create');
+        // Save create form data
+        Route::post('/save',[\App\Http\Controllers\ContactController::class, 'save'])->name('contact.create.save');
 
-        // Delete Route
-        Route::post('/delete',[\App\Http\Controllers\ContactController::class, 'delete'])->name('contact.delete');
+        // With selected contact
+        Route::prefix('{contact}')->group(function(){
+            // View Route
+            Route::get('/',[\App\Http\Controllers\ContactController::class,'view'])->name('contact.view');
+            // Save Form Data
+            // Delete Route
+            Route::post('/delete',[\App\Http\Controllers\ContactController::class, 'delete'])->name('contact.delete');
+        });
     });
 });

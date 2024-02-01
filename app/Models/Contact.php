@@ -13,6 +13,12 @@ class Contact extends Model
 
     protected $table = 'contacts';
 
+    protected $fillable = [
+        'name',
+        'contact',
+        'email_address'
+    ];
+
 
     /**
      * @return string

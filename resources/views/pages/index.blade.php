@@ -3,24 +3,30 @@
 
 @section('main')
 
-    <div class="d-flex align-items-baseline mb-3">
+    <div class="d-flex align-items-baseline justify-content-between mb-3">
         <h1>Manage Contacts</h1>
-        <div class="ms-auto">
-            <form method="get" action="{{route('contact.index')}}">
-                <div class="input-group">
-                    <input
-                        name="filter"
-                        minlength="1"
-                        maxlength="50"
-                        type="text"
-                        class="form-control"
-                        value="{{request()->get('filter','')}}"
-                        placeholder="Who are you looking for?">
-                    <button class="btn btn-outline-dark" type="submit">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-                </div>
-            </form>
+
+        <form method="get" action="{{route('contact.index')}}">
+            <div class="input-group">
+                <input
+                    name="filter"
+                    minlength="1"
+                    maxlength="50"
+                    type="text"
+                    class="form-control"
+                    value="{{request()->get('filter','')}}"
+                    placeholder="Who are you looking for?">
+                <button class="btn btn-outline-dark" type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </form>
+
+        <div>
+            <a href="{{route('contact.create')}}" class="btn btn-primary ms-2">
+                <i class="fa-regular fa-square-plus me-2"></i>
+                Create Contact
+            </a>
         </div>
     </div>
 
