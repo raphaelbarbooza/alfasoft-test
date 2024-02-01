@@ -23,7 +23,7 @@
         </form>
 
         <div class="mt-3 mt-md-0">
-            <a href="{{route('contact.create')}}" class="btn btn-primary ms-2">
+            <a href="{{route('contact.create')}}" class="btn btn-primary ms-2 text-nowrap">
                 <i class="fa-regular fa-square-plus me-2"></i>
                 Create Contact
             </a>
