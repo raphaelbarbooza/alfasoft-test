@@ -32,6 +32,7 @@ class ContactCreateRequest extends FormRequest
 
     public function prepareForValidation()
     {
+        // Sanatize the contact input before validate
         $this->merge([
             'contact' => StringHelpers::onlyNumbers($this->contact)
         ]);

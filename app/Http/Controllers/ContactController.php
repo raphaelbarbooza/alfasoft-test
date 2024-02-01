@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactCreateRequest;
 use App\Models\Contact;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -44,20 +45,47 @@ class ContactController extends Controller
         return view('pages.index', ['contacts' => $contacts, 'order' => $order]);
     }
 
+    /**
+     * @param Contact $contact
+     * @param Request $request
+     * @return View
+     * Details page
+     */
     public function view(Contact $contact, Request $request) : View
     {
         return view('pages.details',['contact' => $contact]);
     }
 
-    public function create(Request $request){
+    /**
+     * @param Request $request
+     * @return View
+     * Create Contact page
+     */
+    public function create(Request $request) : View
+    {
         return view('pages.create');
     }
 
-    public function update(Contact $contact, Request $request){
+    /**
+     * @param Contact $contact
+     * @param Request $request
+     * @return View
+     * Update Contact page
+     */
+    public function update(Contact $contact, Request $request) : View
+    {
         return view('pages.update',['contact' => $contact]);
     }
 
-    public function save(?Contact $contact = null, ContactCreateRequest $request){
+
+    /**
+     * @param Contact|null $contact
+     * @param ContactCreateRequest $request
+     * @return RedirectResponse
+     * Save method used even for Create Form or Update Form
+     */
+    public function save(?Contact $contact = null, ContactCreateRequest $request) : RedirectResponse
+    {
         $validated = $request->validated();
 
         DB::beginTransaction();
@@ -80,9 +108,6 @@ class ContactController extends Controller
             return redirect()->route('contact.view',['contact' => $contact->getAttribute('id')])->with(['generalSuccess' => 'Contact saved successfully']);
 
         }catch (\Throwable $throwable){
-
-            dd($throwable->getMessage());
-
             // Rollback
             DB::rollBack();
             // Some error happen
@@ -93,7 +118,15 @@ class ContactController extends Controller
         }
 
     }
-    public function delete(Contact $contact, Request $request){
+
+    /**
+     * @param Contact $contact
+     * @param Request $request
+     * @return RedirectResponse
+     * Delete contact method
+     */
+    public function delete(Contact $contact, Request $request) : RedirectResponse
+    {
         // Perfom the action
         DB::beginTransaction();
         try {
