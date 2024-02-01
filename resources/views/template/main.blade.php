@@ -22,7 +22,9 @@
     @include('parts.login-bar')
 
     <div class="text-center pt-5 pb-5">
-        <img class="mw-100" src="{{asset('assets/images/logo.png')}}"/>
+        <a href="{{route('contact.index')}}">
+            <img class="mw-100" src="{{asset('assets/images/logo.png')}}"/>
+        </a>
     </div>
 
     <div class="border-top p-1 p-md-5">

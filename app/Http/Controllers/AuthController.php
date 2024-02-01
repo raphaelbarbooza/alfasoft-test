@@ -37,6 +37,11 @@ class AuthController extends Controller
         return redirect()->back()->with(['authError' => 'Email or Password are incorrect']);
     }
 
+    public function login(Request $request){
+        // Force user to login
+        return redirect()->route('contact.index')->with(['authError' => 'You have to be logged in for this action']);
+    }
+
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
