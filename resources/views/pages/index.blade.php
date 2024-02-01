@@ -70,13 +70,12 @@
                 </td>
                 <td width="1">
                     <div class="btn-group" role="group">
-                        <button @guest disabled @endguest
-                                type="button"
+                        <a href="@auth {{route('contact.view',['contact' => $contact->getAttribute('id')])}} @endauth"
                                 class="btn btn-sm btn-outline-dark"
                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                 title="Details">
                             <i class="fa-solid fa-bars-staggered"></i>
-                        </button>
+                        </a>
                         <button @guest disabled @endguest type="button"
                                 class="btn btn-sm btn-outline-primary"
                                 data-bs-toggle="tooltip" data-bs-placement="top"
