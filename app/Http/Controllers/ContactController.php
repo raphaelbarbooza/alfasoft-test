@@ -53,6 +53,10 @@ class ContactController extends Controller
         return view('pages.create');
     }
 
+    public function update(Contact $contact, Request $request){
+        return view('pages.update',['contact' => $contact]);
+    }
+
     public function save(?Contact $contact = null, ContactCreateRequest $request){
         $validated = $request->validated();
 

@@ -82,12 +82,12 @@
                                 title="Details">
                             <i class="fa-solid fa-bars-staggered"></i>
                         </a>
-                        <button @guest disabled @endguest type="button"
+                        <a href="@auth {{route('contact.update',['contact' => $contact->getAttribute('id')])}} @endauth"
                                 class="btn btn-sm btn-outline-primary"
                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                 title="Edit">
                             <i class="fa-regular fa-pen-to-square"></i>
-                        </button>
+                        </a>
                         <button @guest disabled @endguest type="button"
                                 class="btn btn-sm btn-danger"
                                 data-bs-toggle="tooltip" data-bs-placement="top"

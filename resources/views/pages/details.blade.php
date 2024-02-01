@@ -11,7 +11,7 @@
             <h1>Details of {{$contact->getAttribute('name')}}</h1>
         </div>
         <div class="ms-auto">
-            <a href="#" class="btn btn-primary">
+            <a href="{{route('contact.update',['contact' => $contact->getAttribute('id')])}}" class="btn btn-primary">
                 <i class="fa-regular fa-pen-to-square me-2"></i>
                 Edit
             </a>

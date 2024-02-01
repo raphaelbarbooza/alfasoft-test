@@ -29,7 +29,10 @@ Route::middleware('auth:web')->group(function(){
         Route::prefix('{contact}')->group(function(){
             // View Route
             Route::get('/',[\App\Http\Controllers\ContactController::class,'view'])->name('contact.view');
-            // Save Form Data
+            // Update Form Route
+            Route::get('/update',[\App\Http\Controllers\ContactController::class,'update'])->name('contact.update');
+            // Save update form data
+            Route::post('/save',[\App\Http\Controllers\ContactController::class, 'save'])->name('contact.update.save');
             // Delete Route
             Route::post('/delete',[\App\Http\Controllers\ContactController::class, 'delete'])->name('contact.delete');
         });

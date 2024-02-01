@@ -26,7 +26,7 @@ class ContactCreateRequest extends FormRequest
             'id' => 'sometimes|nullable|exists:contacts',
             'name' => 'required|string|min:5|max:200',
             'contact' => 'required|numeric|digits:9',
-            'email_address' => 'required|email|unique:contacts,email_address,'.request()->input('contact','NULL').',id,deleted_at,NULL'
+            'email_address' => 'required|email|unique:contacts,email_address,'.($this->route('contact') ? $this->route('contact')->getAttribute('id') : 'NULL').',id,deleted_at,NULL'
         ];
     }
 
