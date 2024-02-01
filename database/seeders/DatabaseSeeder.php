@@ -3,7 +3,11 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Contact;
+use App\Models\User;
+use Database\Factories\ContactFactory;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,11 +16,29 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        /**
+         * Create a user if not exists
+         */
+        User::firstOrCreate(
+            [
+                'email' => 'demo@email.com'
+            ],
+            [
+                'name' => 'Admin',
+                'password' => Hash::make('123456')
+            ]);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        /**
+         * Populate the Contacts Table with fake data
+         * only if we have less than 20 contacts
+         */
+        $count = Contact::all()->count();
+
+        if($count < 20){
+
+            ContactFactory::times(1)->createMany(20);
+
+        }
+
     }
 }
