@@ -3,7 +3,7 @@
 
 @section('main')
 
-    <div class="d-flex align-items-baseline mb-3">
+    <div class="d-flex flex-column flex-md-row align-items-baseline mb-3">
         <div class="d-flex align-items-center">
             <a href="{{route('contact.index')}}" class="btn btn-light me-2">
                 <i class="fa-solid fa-chevron-left"></i>
@@ -29,7 +29,7 @@
     </div>
 
     <div class="mt-3 pt-3 border-top">
-        <div class="row">
+        <div class="row g-3 g-md-0">
             <div class="col-md-3">
                 <label class="d-block fw-bold">
                     Created at:
@@ -43,7 +43,7 @@
                 {{$contact->getAttribute('updated_at')->format('Y-m-d H:i:s')}}
             </div>
         </div>
-        <div class="row mt-3">
+        <div class="row mt-3 g-3 g-md-0">
             <div class="col-md-3">
                 <label class="d-block fw-bold">
                     Contact name:
